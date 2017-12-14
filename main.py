@@ -8,6 +8,7 @@ import cPickle
 import numpy.random as npr
 import numpy as np
 
+
 flags = tf.app.flags
 flags.DEFINE_string('gpu', '0', "GPU to used")
 flags.DEFINE_string('run', '0', "run")

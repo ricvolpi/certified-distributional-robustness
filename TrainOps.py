@@ -43,6 +43,7 @@ class TrainOps(object):
 	if not os.path.exists(self.model_save_path):
 	    os.makedirs(self.model_save_path)
 	
+	
 	self.train_iters = config.getint('MAIN_SETTINGS', 'train_iters')
 	self.batch_size = config.getint('MAIN_SETTINGS', 'batch_size')
 	self.gamma = config.getfloat('MAIN_SETTINGS', 'gamma')

@@ -15,6 +15,7 @@ class Model(object):
 	self.img_size_2 = 28
 	self.embedding_size = 512
 	
+	
 	   
     def encoder(self, images, reuse=False, return_fc4=False, is_training=False):
 	
