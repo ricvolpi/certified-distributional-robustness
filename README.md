@@ -31,6 +31,7 @@ python download_and_process_mnist.py
 to download and process MNIST dataset, then run 
 
 ```
-sh run_exp.sh```
+sh run_exp.sh
+```
 
 to start the training procedure, after having set the desired hyperparameters/configurations in exp_config and run_exp.
