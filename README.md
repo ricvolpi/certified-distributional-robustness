@@ -1,6 +1,6 @@
 # UNOFFICIAL code for the paper [Certifiable Distributional Robustness with Principled Adversarial Training](https://openreview.net/forum?id=Hk6kPgZA-)
 
-UNOFFICIAL implementation of the work submitted to ICLR 2018. Work in progress, not sure of the correctness of the implementation at present.  
+UNOFFICIAL implementation of the work submitted to ICLR 2018. Work in progress, not completely sure of the correctness of the implementation at present.  
 
 ## Overview 
 
