@@ -46,6 +46,7 @@ class TrainOps(object):
 	
 	self.train_iters = config.getint('MAIN_SETTINGS', 'train_iters')
 	self.batch_size = config.getint('MAIN_SETTINGS', 'batch_size')
+	self.model.batch_size=self.batch_size
 	self.gamma = config.getfloat('MAIN_SETTINGS', 'gamma')
 	self.model.gamma = config.getfloat('MAIN_SETTINGS', 'gamma')
 	self.model.learning_rate_min = config.getfloat('MAIN_SETTINGS', 'learning_rate_min')

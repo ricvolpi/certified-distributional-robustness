@@ -14,6 +14,7 @@ class Model(object):
 	self.img_size_1 = 28
 	self.img_size_2 = 28
 	self.embedding_size = 512
+	self.batch_size=64
 	
 	
 	   
@@ -38,7 +39,7 @@ class Model(object):
 	self.z = tf.placeholder(tf.float32, [None, self.img_size_1, self.img_size_2, self.no_channels], 'z')
 	self.labels = tf.placeholder(tf.int64, [None], 'labels')
 	
-	self.z_hat = tf.get_variable('z_hat', [64, self.img_size_1, self.img_size_2, self.no_channels])
+	self.z_hat = tf.get_variable('z_hat', [self.batch_size, self.img_size_1, self.img_size_2, self.no_channels])
 	self.z_hat_assign_op = self.z_hat.assign(self.z)
 		    
 	self.logits = self.encoder(self.z)
