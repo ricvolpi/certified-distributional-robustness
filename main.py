@@ -1,6 +1,6 @@
 import tensorflow as tf
-from Model import Model
-from TrainOps import TrainOps
+from model import Model
+from trainOps import TrainOps
 import glob
 import os
 import cPickle
