@@ -12,9 +12,9 @@ Work in progress, still missing the implementation of the Hessians to check the 
  
  ### Files
  
- Model.py: class to build and train a ConvNet.
+ model.py: class to build and train a ConvNet.
  
- TrainOps.py: class to train and test the model. 
+ trainOps.py: class to train and test the model. 
  
  run_exp.sh: to lunch an experiment.
  
