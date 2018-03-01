@@ -16,7 +16,7 @@ Work in progress, still missing the implementation of the Hessians to check the 
  
  trainOps.py: class to train and test the model. 
  
- run_exp.sh: to lunch an experiment.
+ run_exp.sh: to launch an experiment.
  
  exp_configuration: configuration file for an experiment, set here the hyperparameters. 
  
