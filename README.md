@@ -1,4 +1,4 @@
-# UNOFFICIAL code for the paper [Certifiable Distributional Robustness with Principled Adversarial Training](https://openreview.net/forum?id=Hk6kPgZA-)
+# Unofficial code for the paper [Certifying Some Distributional Robustness with Principled Adversarial Training](https://openreview.net/forum?id=Hk6kPgZA-)
  
 Work in progress, still missing the implementation of the Hessians to check the validity of the hyperparameter gamma.  
  
