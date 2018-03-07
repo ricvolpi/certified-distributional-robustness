@@ -1,7 +1,5 @@
 # Unofficial code for the paper [Certifying Some Distributional Robustness with Principled Adversarial Training](https://openreview.net/forum?id=Hk6kPgZA-)
  
-Work in progress, still missing the implementation of the Hessians to check the validity of the hyperparameter gamma.  
- 
  ## Overview 
  
  The code allows to train a ConvNet on MNIST using the adversarial training proposed in the paper. 
