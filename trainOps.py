@@ -53,10 +53,6 @@ class TrainOps(object):
 	self.model.learning_rate_max = config.getfloat('MAIN_SETTINGS', 'learning_rate_max')
 	self.T_adv = config.getint('MAIN_SETTINGS', 'T_adv')
 	    
-	self.embedding_size = config.getint('MODEL_SETTINGS', 'embedding_size')
-	self.model.embedding_size = self.embedding_size
-    
-        
     def load_mnist(self, split='train'):
         print ('Loading MNIST dataset.')
         image_file = 'train.pkl' if split=='train' else 'test.pkl'
