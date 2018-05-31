@@ -39,23 +39,26 @@ class Model(object):
 	self.z = tf.placeholder(tf.float32, [None, self.img_size_1, self.img_size_2, self.no_channels], 'z')
 	self.labels = tf.placeholder(tf.int64, [None], 'labels')
 	
+	# variable whose values are learned to maximize the loss
 	self.z_hat = tf.get_variable('z_hat', [self.batch_size, self.img_size_1, self.img_size_2, self.no_channels])
 	self.z_hat_assign_op = self.z_hat.assign(self.z)
 		    
 	self.logits = self.encoder(self.z)
 	self.logits_hat = self.encoder(self.z_hat, reuse=True)
 	
+	# for testing
 	self.pred = tf.argmax(self.logits, 1)
 	self.correct_pred = tf.equal(self.pred, self.labels)
 	self.accuracy = tf.reduce_mean(tf.cast(self.correct_pred, tf.float32))
 	
 	# cross-entropy loss
 	self.min_loss = slim.losses.sparse_softmax_cross_entropy(self.logits, self.labels)
-	# cross entropy loss and term weighted by gamma - minus sign in order to use the minimizer
-	self.max_loss = -slim.losses.sparse_softmax_cross_entropy(self.logits_hat, self.labels) + self.gamma * tf.reduce_mean(tf.square(self.z - self.z_hat)) 
+	# cross-entropy loss and cost
+	self.max_loss = slim.losses.sparse_softmax_cross_entropy(self.logits_hat, self.labels) - self.gamma * tf.reduce_mean(tf.square(self.z - self.z_hat)) 
 	
+	# using Adam for the minimizer and vanilla Gradient Descent for the maximizer
 	self.min_optimizer = tf.train.AdamOptimizer(self.learning_rate_min) 
-	self.max_optimizer = tf.train.AdamOptimizer(self.learning_rate_max) 
+	self.max_optimizer = tf.train.GradientDescentOptimizer(self.learning_rate_max) 
 	
 	t_vars = tf.trainable_variables()
 	min_vars = [var for var in t_vars if 'z_hat' not in var.name]
@@ -63,7 +66,7 @@ class Model(object):
 	
 	
 	self.min_train_op = slim.learning.create_train_op(self.min_loss, self.min_optimizer, variables_to_train = min_vars)
-	self.max_train_op = slim.learning.create_train_op(self.max_loss, self.max_optimizer, variables_to_train = max_vars)
+	self.max_train_op = slim.learning.create_train_op(-self.max_loss, self.max_optimizer, variables_to_train = max_vars)
 	
 	min_loss_summary = tf.summary.scalar('min_loss', self.min_loss)
 	max_loss_summary = tf.summary.scalar('max_loss', self.max_loss)
