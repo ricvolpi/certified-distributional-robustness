@@ -13,7 +13,6 @@ class Model(object):
 	self.no_channels = 1
 	self.img_size_1 = 28
 	self.img_size_2 = 28
-	self.embedding_size = 512
 	self.batch_size=64
 	
 	
